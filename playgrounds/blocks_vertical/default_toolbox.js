@@ -522,8 +522,18 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
   '</category>' +
   '<category name="%{BKY_CATEGORY_MYBLOCKS}" id="more" colour="#FF6680" secondaryColour="#FF4D6A" custom="PROCEDURE">' +
   '</category>' +
+  '<category name="Bukkit" id="bukkit" colour="#FF2370" secondaryColour="#FF0370">' + 
+    '<block type="evnt_onjoin" id="evnt_onjoin"></block>' +
+    '<block type="func_sendmessage" id="func_sendmessage">' +
+      '<value name="MESSAGE">' +
+        '<shadow type="text">' +
+          '<field name="TEXT">Hello world!</field>' +
+        '</shadow>' +
+      '</value>' +
+    '</block>' +
+  '</category>' +
   '<category name="Extensions" id="extensions" colour="#FF6680" secondaryColour="#FF4D6A" ' +
-    'iconURI="../media/extensions/wedo2-block-icon.svg" showStatusButton="true">' +
+    'iconURI="../../media/extensions/wedo2-block-icon.svg" showStatusButton="true">' +
     '<block type="extension_pen_down" id="extension_pen_down"></block>' +
     '<block type="extension_music_drum" id="extension_music_drum">' +
       '<value name="NUMBER">' +

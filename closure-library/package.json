@@ -21,7 +21,7 @@
   "_resolved": "https://registry.npmjs.org/google-closure-library/-/google-closure-library-20180204.0.0.tgz",
   "_shasum": "ad3c5a18dfd731c6149c5220d2991c0c9129718a",
   "_spec": "google-closure-library@20180204.0.0",
-  "_where": "/home/travis/build/LLK/scratch-blocks",
+  "_where": "/home/ikke/Programming/scratch-blocks",
   "author": {
     "name": "The Closure Library Authors"
   },
