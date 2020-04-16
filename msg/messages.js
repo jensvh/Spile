@@ -350,3 +350,9 @@ Blockly.Msg.NEW_BROADCAST_MESSAGE = 'New message';
 Blockly.Msg.NEW_BROADCAST_MESSAGE_TITLE = 'New message name:';
 Blockly.Msg.BROADCAST_MODAL_TITLE = 'New Message';
 Blockly.Msg.DEFAULT_BROADCAST_MESSAGE_NAME = 'message1';
+
+// Bukkit events
+Blockly.Msg.EVNT_ONJOIN = "when a player joins";
+
+// Bukkit functions
+Blockly.Msg.FUNC_SENDMESSAGE = "send message %1";
