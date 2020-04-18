@@ -19,21 +19,4 @@ Bukkit.Plugin = function() {
         // Add nesseccary imports
         this.imports.push(...event.imports);
     };
-
-    this.asString = function() {
-        var string = "";
-        // Add imports
-        for (var i = 0, imp; imp = this.imports[i]; i++) {
-            string += "import " + imp + ";\n";
-        }
-        // Open class
-        string += "public class " + name + " extends JavaPlugin {" + "\n";
-        // Add functions
-        for (var i = 0, event; event = this.events[i]; i++) {
-            string += event.asString() + "\n";
-        }
-        // Close class
-        string += "}";
-        return string;
-    };
 };

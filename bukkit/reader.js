@@ -22,7 +22,7 @@ Bukkit.Reader.readWorkspace = function(workspace) {
         var BukkitEvent = Bukkit.Reader.readEvent(event);
         JavaPlugin.addEvent(BukkitEvent);
     }
-    console.log(JavaPlugin.asString());
+    return JavaPlugin;
 };
 
 Bukkit.Reader.readEvent = function(event) {
