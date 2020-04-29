@@ -68,7 +68,7 @@ Bukkit.Blocks["evnt_onjoin"] = function() {
         ["@EventHandler", "public void onJoin(PlayerJoinEvent event) {"],
         "", "",
         "", "}", "",
-        ["org.bukkit.EventHandler", "org.bukkit.PlayerJoinEvent"]
+        ["org.bukkit.event.EventHandler", "org.bukkit.event.player.PlayerJoinEvent"]
     );
 };
 

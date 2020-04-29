@@ -15,7 +15,7 @@ Bukkit.Convertor.toJava = function(plugin, name) {
     }
 
     java.push(""); // Empty line for readability
-    java.push("public class " + name + " extends JavaPlugin {");
+    java.push("public class Main extends JavaPlugin {");
 
     // Add events
     for (var i = 0, event; event = plugin.events[i]; i++) {
@@ -36,4 +36,10 @@ Bukkit.Convertor.toYml = function(name, version, description, author) {
         "main: " + name
     ].join("\n");
     return yml;
+};
+
+Bukkit.Convertor.toFile = function(name, text, download_btn) {
+    var file = new Blob([text], {type: "text/plain"});
+    download_btn.href = URL.createObjectURL(file);
+    download_btn.download = name;
 };

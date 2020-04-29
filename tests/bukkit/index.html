@@ -103,7 +103,7 @@
         return document.getElementById('toolbox-' + (match ? match[1] : 'categories'));
       }
 
-      function toJava() {
+      function convert() {
         var plugin = Bukkit.Reader.readWorkspace(workspace);
 
         var name = document.getElementById('plugin_name').value;
@@ -111,13 +111,26 @@
         var description = document.getElementById('plugin_description').value;
         var author = document.getElementById('plugin_author').value;
 
+        var yml = Bukkit.Convertor.toYml(name, version, description, author);
+        var java = Bukkit.Convertor.toJava(plugin, name);
+
         var output = document.getElementById('javaCode');
-        var code = Bukkit.Convertor.toJava(plugin, name);
-        output.innerText = code;
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            output.innerHTML = this.responseText;
+        };
+        xhttp.open("POST", "http://localhost:8080/", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(encodeURI("java=" + java + "&yml=" + yml)); 
       }
     </script>
 
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       html, body {
         height: 100%;
       }
@@ -126,11 +139,48 @@
         background-color: #fff;
         font-family: sans-serif;
         overflow: hidden;
+        margin: 0;
+        padding: 0;
       }
 
       h1 {
         font-weight: normal;
         font-size: 140%;
+      }
+
+      #nav {
+        display: block;
+        height: 63px;
+        width: 100%;
+        background-color: #333;
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,.25);
+        line-height: 19px;
+      }
+
+      .logo {
+        display: block;
+        width: 200px;
+        height: 63px;
+        padding-left: 20px;
+        padding-top: 11px;
+        font-weight: 700;
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        color: #64dc12;
+        text-decoration: none;
+        text-transform: uppercase ;
+      }
+
+      .logo span {
+        margin-left: 3px;
+        font-size: 23px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .logo img {
+        height: 40px;
+        display: inline-block;
+        vertical-align: middle;
       }
 
       #blocklyDiv {
@@ -149,6 +199,14 @@
   </head>
 
   <body onload="start()">
+    <!-- navbar -->
+    <nav id="nav">
+      <a class="logo">
+        <img src="./resources/spile_big.png" alt="logo">
+        <span>Spile</span>
+      </a>
+    </nav>
+    
     <div id="blocklyDiv"></div>
 
     <!-- Sidebar -->
@@ -160,7 +218,8 @@
         <p>Description: <input type="text" id="plugin_description"></p>
         <p>Author: <input type="text" id="plugin_author"></p>
       </div>
-      <button onclick="toJava();">Convert</button>
+      <button onclick="convert();">Convert</button>
+      <a id="downloadFile">Download</a>
       <p id="javaCode"></p>
     </div>
     

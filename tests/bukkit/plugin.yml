@@ -1,0 +1,5 @@
+name: TestPlug
+version: 0.1
+description: Tests the spile compiler.
+author: [Spile]
+main: TestPlug
